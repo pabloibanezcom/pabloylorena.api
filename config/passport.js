@@ -1,8 +1,8 @@
 // load all the things we need
-var FacebookTokenStrategy = require('passport-facebook-token');
+const FacebookTokenStrategy = require('passport-facebook-token');
 
 // load up the user model
-var User = require('../app/models/user');
+const User = require('../app/models/user');
 
 // expose this function to our app using module.exports
 module.exports = function (passport) {
@@ -22,7 +22,7 @@ module.exports = function (passport) {
         function (accessToken, refreshToken, profile, done) {
 
             User.find({}, (err, users) => {
-                var authorizedUser;
+                let authorizedUser;
                 users.forEach(function (user) {
                     if (user._doc.facebookId === profile.id + '') {
                         authorizedUser = user._doc;
@@ -42,7 +42,7 @@ module.exports = function (passport) {
         clientSecret: process.env.FB_APP_SECRET
     },
         function (accessToken, refreshToken, profile, done) {
-            var isAdmin = false;
+            let isAdmin = false;
             User.find({}, function (err, users) {
                 users.forEach(function (user) {
                     if (user._doc.facebookId === profile.id) {
@@ -54,8 +54,8 @@ module.exports = function (passport) {
         }
     ));
 
-    var createNewUser = function (profile) {
-        var newUser = new User({
+    const createNewUser = function (profile) {
+        const newUser = new User({
             name: profile.displayName,
             photo: profile.photos[0].value,
             facebookId: profile.id,

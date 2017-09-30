@@ -1,6 +1,5 @@
 // load the things we need
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt-nodejs');
 
 // define the schema for our user model
 const guestSchema = mongoose.Schema({
