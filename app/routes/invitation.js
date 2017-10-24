@@ -10,10 +10,24 @@ module.exports = (app, passport) => {
                 .catch(error => console.log(error));
         });
 
-    app.put('/api/invitations',
+    app.get('/api/invitation/:guid',
+        (req, res) => {
+            invitationService.getInvitation(req.param('guid'), true)
+                .then(invitation => res.send(invitation))
+                .catch(error => console.log(error));
+        });
+
+    app.put('/api/invitations-admin',
         // passport.authenticate('admin'),
         (req, res) => {
             invitationService.updateInvitation(req.body)
+                .then(invitation => res.send(req.body))
+                .catch(error => console.log(error));
+        });
+
+    app.put('/api/invitations',
+        (req, res) => {
+            invitationService.updateInvitationByGuest(req.body)
                 .then(invitation => res.send(req.body))
                 .catch(error => console.log(error));
         });

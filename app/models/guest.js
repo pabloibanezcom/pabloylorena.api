@@ -12,7 +12,8 @@ const guestSchema = mongoose.Schema({
     allergies: String,
     busTime: String,
     tableNumber: Number,
-    isAttending: Boolean
+    isAttending: Boolean,
+    additionalComments: String
 });
 
 // create the model for users and expose it to our app
