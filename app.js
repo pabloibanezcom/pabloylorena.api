@@ -8,8 +8,6 @@ const flash = require('connect-flash');
 const session = require('express-session');
 
 require('dotenv').load();
-require('./config/passport')(passport); 
-const mongoose = require('./app/mongoose.js');
 const app = express();
 
 app.use(cors());
@@ -18,14 +16,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-  secret: 'pabloylorena',
+  secret: process.env.APP_NAME,
   resave: true,
   saveUninitialized: true
 }));
-app.use(passport.initialize());
-app.use(passport.session()); 
-app.use(flash()); 
 
-require('./app/routes.js')(app, passport);
+const options = {
+  app_name: process.env.APP_NAME,
+  token_key: process.env.TOKEN_KEY,
+  host: process.env.HOST,
+  mongodb_uri: process.env.MONGODB_URI,
+  root_path: process.env.ROOT_PATH,
+  exampleUsers: require('./app/auth/exampleUsers')
+};
+
+// const generator = require('../../scaffolding/node-express-mongodb');
+const generator = require('node-express-mongodb');
+
+generator.init(app, options);
 
 module.exports = app;

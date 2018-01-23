@@ -1,0 +1,52 @@
+[
+    {
+        "alias": "Carlos y Esther",
+        "receiver": "Carlos Mencia",
+        "address": "Calle SuperMario",
+        "isSent": false,
+        "isReplied": false,
+        "group": {
+            "name": "Amigos de Zaragoza"
+        }
+    },
+    {
+        "alias": "David y Elena",
+        "receiver": "David Martinez",
+        "address": "Calle Simeone",
+        "isSent": true,
+        "isReplied": false,
+        "group": {
+            "name": "Amigos de Alcala"
+        }
+    },
+    {
+        "alias": "Maru y Javi",
+        "receiver": "Maria Eugenia Ruiz",
+        "address": "Calle El Olivo",
+        "isSent": true,
+        "isReplied": false,
+        "group": {
+            "name": "Amigas de Navalmoral"
+        }
+    },
+    {
+        "alias": "Myriam y Pucho",
+        "receiver": "Myriam Diaz",
+        "address": "Calle Antonio Luna",
+        "isSent": false,
+        "isReplied": false,
+        "group": {
+            "name": "Amigas de Navalmoral"
+        }
+    },
+    {
+        "alias": "Mamen y Busi",
+        "receiver": "Mari Carmen Teijon",
+        "address": "Calle Moscatel",
+        "isSent": false,
+        "isReplied": false,
+        "group": {
+            "name": "Amigas de Navalmoral"
+        }
+    }
+]

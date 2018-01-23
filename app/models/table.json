@@ -1,0 +1,30 @@
+{
+    "name": "Table",
+    "route": "table",
+    "authLevel": "admin",
+    "properties": {
+        "number": {
+            "type": "Number"
+        },
+        "name": {
+            "type": "String"
+        },
+        "shape": {
+            "type": "String"
+        },
+        "maxSize": {
+            "type": "Number"
+        },
+        "minSize": {
+            "type": "Number"
+        },
+        "lastModified": {
+            "type": "Date",
+            "generate": "DateNow"
+        },
+        "guests": {
+            "type": "[Guest]",
+            "propertyMatch": "table"
+        }
+    }
+}

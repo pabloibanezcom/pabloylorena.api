@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Familia de Pablo",
+        "host": "Pablo",
+        "order": 1
+    },
+    {
+        "name": "Familia de Antonio",
+        "host": "Lorena",
+        "order": 2
+    },
+    {
+        "name": "Familia de Nieves",
+        "host": "Lorena",
+        "order": 3
+    },
+    {
+        "name": "Amigas de Navalmoral",
+        "host": "Lorena",
+        "order": 4
+    },
+    {
+        "name": "Amigos de Zaragoza",
+        "host": "Pablo",
+        "order": 5
+    },
+    {
+        "name": "Amigos de Alcala",
+        "host": "Pablo",
+        "order": 6
+    },
+    {
+        "name": "Amigos de Madrid Pablo",
+        "host": "Pablo",
+        "order": 7
+    },
+    {
+        "name": "Compañeras piso Lorena",
+        "host": "Lorena",
+        "order": 8
+    },
+    {
+        "name": "Amigos de Londres",
+        "host": "Ambos",
+        "order": 9
+    },
+    {
+        "name": "Amigos de padres de Pablo",
+        "host": "Pablo",
+        "order": 10
+    },
+    {
+        "name": "Amigos de padres de Lorena",
+        "host": "Lorena",
+        "order": 11
+    }
+]

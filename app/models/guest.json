@@ -1,0 +1,53 @@
+{
+    "name": "Guest",
+    "route": "guest",
+    "authLevel": "admin",
+    "properties": {
+        "name": {
+            "type": "String"
+        },
+        "fullName": {
+            "type": "String"
+        },
+        "type": {
+            "type": "Number",
+            "disableSearchMinMax": true
+        },
+        "email": {
+            "type": "String"
+        },
+        "phone": {
+            "type": "String"
+        },
+        "sendSms": {
+            "type": "Boolean"
+        },
+        "allergies": {
+            "type": "String"
+        },
+        "additionalComments": {
+            "type": "String"
+        },
+        "busTime": {
+            "type": "String"
+        },
+        "isAttending": {
+            "type": "Boolean"
+        },
+        "giftAmount": {
+            "type": "Number"
+        },
+        "lastModified": {
+            "type": "Date",
+            "generate": "DateNow"
+        },
+        "invitation": {
+            "type": "Invitation",
+            "propertyMatch": "guests"
+        },
+        "table": {
+            "type": "Table",
+            "propertyMatch": "guests"
+        }
+    }
+}

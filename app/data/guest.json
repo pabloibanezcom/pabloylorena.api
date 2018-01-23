@@ -1,134 +1,187 @@
 [
     {
-        "invitationAlias": "Carlos y Esther",
         "name": "Carlos",
         "fullName": "Carlos Mencia",
         "type": 0,
+        "isMale": 0,
         "email": "carlos@gmail.com",
-        "isAllergic": false,
+        "phone": "0034669654032",
+        "sendSms": true,
         "allergies": "",
         "busTime": "",
         "tableNumber": 0,
-        "isAttending": false
+        "isAttending": false,
+        "invitation": {
+            "alias": "Carlos y Esther"
+        },
+        "table": {
+            "number": 1
+        }
     },
     {
-        "invitationAlias": "Carlos y Esther",
         "name": "Esther",
         "fullName": "Esther Aparicio",
         "type": 1,
         "email": "esther@gmail.com",
-        "isAllergic": false,
+        "phone": "0034654123456",
         "allergies": "",
         "busTime": "",
         "tableNumber": 0,
-        "isAttending": false
+        "isAttending": false,
+        "invitation": {
+            "alias": "Carlos y Esther"
+        },
+        "table": {
+            "number": 1
+        }
     },
     {
-        "invitationAlias": "David y Elena",
         "name": "David",
         "fullName": "David Martinez",
         "type": 0,
         "email": "david.martinez@gmail.com",
-        "isAllergic": false,
+        "phone": "0034654123456",
         "allergies": "",
         "busTime": "",
         "tableNumber": 0,
-        "isAttending": true
+        "invitation": {
+            "alias": "David y Elena"
+        },
+        "table": {
+            "number": 2
+        }
     },
     {
-        "invitationAlias": "David y Elena",
         "name": "Elena",
         "fullName": "Elena Garcia",
         "type": 1,
         "email": "elena.garcia@gmail.com",
-        "isAllergic": false,
+        "phone": "0034654123456",
         "allergies": "",
         "busTime": "",
         "tableNumber": 0,
-        "isAttending": true
+        "isAttending": true,
+        "invitation": {
+            "alias": "David y Elena"
+        },
+        "table": {
+            "number": 2
+        }
     },
     {
-        "invitationAlias": "Maru y Javi",
         "name": "Maru",
         "fullName": "Maru Ruiz",
         "type": 1,
         "email": "maru.ruiz@gmail.com",
-        "isAllergic": true,
+        "phone": "0034654123456",
         "allergies": "Fruta y frutos secos",
         "busTime": "",
         "tableNumber": 0,
-        "isAttending": true
+        "isAttending": true,
+        "invitation": {
+            "alias": "Maru y Javi"
+        },
+        "table": {
+            "number": 3
+        }
     },
     {
-        "invitationAlias": "Maru y Javi",
         "name": "Javi",
         "fullName": "Javier Ortiz",
         "type": 0,
         "email": "javier.ortiz@gmail.com",
-        "isAllergic": false,
+        "phone": "0034654123456",
         "allergies": "",
         "busTime": "",
         "tableNumber": 0,
-        "isAttending": true
+        "invitation": {
+            "alias": "Maru y Javi"
+        },
+        "table": {
+            "number": 3
+        }
     },
     {
-        "invitationAlias": "Myriam y Pucho",
         "name": "Myriam",
         "fullName": "Myriam Diaz",
         "type": 1,
         "email": "myriam.diaz@gmail.com",
-        "isAllergic": false,
+        "phone": "0034654123456",
         "allergies": "",
         "busTime": "",
         "tableNumber": 0,
-        "isAttending": false
+        "isAttending": false,
+        "invitation": {
+            "alias": "Myriam y Pucho"
+        },
+        "table": {
+            "number": 3
+        }
     },
     {
-        "invitationAlias": "Myriam y Pucho",
         "name": "Javi",
         "fullName": "Javier Rodriguez",
         "type": 0,
         "email": "pucho@gmail.com",
-        "isAllergic": false,
+        "phone": "0034654123456",
         "allergies": "",
         "busTime": "",
         "tableNumber": 0,
-        "isAttending": false
+        "isAttending": false,
+        "invitation": {
+            "alias": "Myriam y Pucho"
+        },
+        "table": {
+            "number": 3
+        }
     },
     {
-        "invitationAlias": "Mamen y Busi",
         "name": "Mamen",
         "fullName": "Mamen Teijon",
         "type": 1,
         "email": "mamen.teijon@gmail.com",
-        "isAllergic": false,
+        "phone": "0034654123456",
         "allergies": "",
         "busTime": "",
         "tableNumber": 0,
-        "isAttending": true
+        "isAttending": true,
+        "invitation": {
+            "alias": "Mamen y Busi"
+        },
+        "table": {
+            "number": 3
+        }
     },
     {
-        "invitationAlias": "Mamen y Busi",
         "name": "Jorge",
         "fullName": "Jorge Apellido",
         "type": 0,
         "email": "busi@gmail.com",
-        "isAllergic": false,
         "allergies": "",
         "busTime": "",
         "tableNumber": 0,
-        "isAttending": true
+        "isAttending": true,
+        "invitation": {
+            "alias": "Mamen y Busi"
+        },
+        "table": {
+            "number": 3
+        }
     },
     {
-        "invitationAlias": "Mamen y Busi",
         "name": "Marco",
         "fullName": "Marco Apellido",
         "type": 2,
         "email": "marco@gmail.com",
-        "isAllergic": false,
         "allergies": "",
         "busTime": "",
         "tableNumber": 0,
-        "isAttending": false
+        "isAttending": false,
+        "invitation": {
+            "alias": "Mamen y Busi"
+        },
+        "table": {
+            "number": 4
+        }
     } 
 ]

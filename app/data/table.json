@@ -1,0 +1,30 @@
+[
+    {
+        "number": 1,
+        "name": "Covent Garden",
+        "shape": "round",
+        "maxSize": 8,
+        "minSize": 6
+    },
+    {
+        "number": 2,
+        "name": "Trafalgar Square",
+        "shape": "round",
+        "maxSize": 10,
+        "minSize": 6
+    },
+    {
+        "number": 3,
+        "name": "Hyde Park",
+        "shape": "rectangle",
+        "maxSize": 8,
+        "minSize": 6
+    },
+    {
+        "number": 4,
+        "name": "Hamleys",
+        "shape": "round",
+        "maxSize": 8,
+        "minSize": 6
+    }
+]

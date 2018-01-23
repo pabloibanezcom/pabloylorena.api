@@ -1,0 +1,17 @@
+{
+    "name": "Notification",
+    "route": "notification",
+    "authLevel": "admin",
+    "properties": {
+        "alias": {
+            "type": "String"
+        },
+        "text": {
+            "type": "String"
+        },
+        "lastModified": {
+            "type": "Date",
+            "generate": "DateNow"
+        }
+    }
+}

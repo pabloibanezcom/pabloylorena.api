@@ -1,0 +1,38 @@
+{
+    "name": "Invitation",
+    "route": "invitation",
+    "authLevel": "admin",
+    "properties": {
+        "guid": {
+            "type": "String",
+            "generate": "GUID"
+        },
+        "alias": {
+            "type": "String"
+        },
+        "receiver": {
+            "type": "String"
+        },
+        "address": {
+            "type": "String"
+        },
+        "isSent": {
+            "type": "Boolean"
+        },
+        "isReplied": {
+            "type": "Boolean"
+        },
+        "lastModified": {
+            "type": "Date",
+            "generate": "DateNow"
+        },
+        "group": {
+            "type": "Group",
+            "propertyMatch": "invitations"
+        },
+        "guests": {
+            "type": "[Guest]",
+            "propertyMatch": "invitation"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "Group",
+    "route": "group",
+    "authLevel": "admin",
+    "properties": {
+        "name": {
+            "type": "String"
+        },
+        "host": {
+            "type": "String"
+        },
+        "order": {
+            "type": "Number"
+        },
+        "lastModified": {
+            "type": "Date",
+            "generate": "DateNow"
+        },
+        "invitations": {
+            "type": "[Invitation]",
+            "propertyMatch": "group"
+        }
+    }
+}

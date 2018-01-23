@@ -1,42 +1,30 @@
-const http = require("http");
-const invitationService = require('../../services/invitation.service');
+const service = require('../services/invitation.service');
 
-module.exports = (app, passport) => {
-    app.get('/api/admin/invitations',
-        // passport.authenticate('admin'),
-        (req, res) => {
-            invitationService.getInvitations()
-                .then(invitations => res.send(invitations))
-                .catch(error => console.log(error));
-        });
+module.exports = (app, modelsService) => {
 
-    app.get('/api/admin/invitation/:guid',
-        // passport.authenticate('admin'),
-        (req, res) => {
-            invitationService.getInvitation(req.param('guid'), false)
-                .then(invitation => res.send(invitation))
-                .catch(error => console.log(error));
-        });
+    const registerGetInvitationByGuid = () => {
+        const url = '/api/invitation/guid/:guid';
+        app.get(url,
+            (req, res) => {
+                service.getInvitationByGuid(modelsService, req.params.guid)
+                    .then(result => res.status(result.statusCode).send(result.invitation))
+                    .catch(err => res.status(500).send(err.message) );
+            });
+        app.routesInfo['Invitation'].push({ model: 'Invitation', name: 'Get By GUID',  method: 'get', url: url });
+    }
 
-    app.get('/api/invitation/:guid',
-        (req, res) => {
-            invitationService.getInvitation(req.param('guid'), true)
-                .then(invitation => res.send(invitation))
-                .catch(error => console.log(error));
-        });
+    const registerConfirmAttendance = () => {
+        const url = '/api/invitation/confirmattendance';
+        app.post(url,
+            (req, res) => {
+                service.confirmAttendance(modelsService, req.body)
+                    .then(result => res.status(result.statusCode).send(result.message))
+                    .catch(err => res.status(500).send(err) );
+            });
+        app.routesInfo['Invitation'].push({ model: 'Invitation', name: 'Confirm Attendance',  method: 'POST', url: url });
+    }
 
-    app.put('/api/admin/invitation',
-        // passport.authenticate('admin'),
-        (req, res) => {
-            invitationService.updateInvitation(req.body)
-                .then(invitation => res.send(req.body))
-                .catch(error => console.log(error));
-        });
-
-    app.put('/api/invitation',
-        (req, res) => {
-            invitationService.updateInvitationByGuest(req.body)
-                .then(invitation => res.send(req.body))
-                .catch(error => console.log(error));
-        });
+    registerGetInvitationByGuid();
+    registerConfirmAttendance();
+    
 };
