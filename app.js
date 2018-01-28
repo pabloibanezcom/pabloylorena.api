@@ -30,8 +30,12 @@ const options = {
   exampleUsers: require('./app/auth/exampleUsers')
 };
 
-// const generator = require('../../scaffolding/node-express-mongodb');
-const generator = require('node-express-mongodb');
+let generator;
+if (process.env.DEV_MODE) {
+  generator = require('../../scaffolding/node-express-mongodb');
+} else {
+  generator = require('node-express-mongodb');
+}
 
 generator.init(app, options);
 
