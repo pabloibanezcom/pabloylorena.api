@@ -2,7 +2,7 @@
     {
         "name": "Carlos",
         "fullName": "Carlos Mencia",
-        "type": 0,
+        "type": 1,
         "isMale": 0,
         "email": "carlos@gmail.com",
         "phone": "0034669654032",
@@ -21,7 +21,7 @@
     {
         "name": "Esther",
         "fullName": "Esther Aparicio",
-        "type": 1,
+        "type": 2,
         "email": "esther@gmail.com",
         "phone": "0034654123456",
         "allergies": "",
@@ -38,7 +38,7 @@
     {
         "name": "David",
         "fullName": "David Martinez",
-        "type": 0,
+        "type": 1,
         "email": "david.martinez@gmail.com",
         "phone": "0034654123456",
         "allergies": "",
@@ -54,7 +54,7 @@
     {
         "name": "Elena",
         "fullName": "Elena Garcia",
-        "type": 1,
+        "type": 2,
         "email": "elena.garcia@gmail.com",
         "phone": "0034654123456",
         "allergies": "",
@@ -71,7 +71,7 @@
     {
         "name": "Maru",
         "fullName": "Maru Ruiz",
-        "type": 1,
+        "type": 2,
         "email": "maru.ruiz@gmail.com",
         "phone": "0034654123456",
         "allergies": "Fruta y frutos secos",
@@ -88,7 +88,7 @@
     {
         "name": "Javi",
         "fullName": "Javier Ortiz",
-        "type": 0,
+        "type": 1,
         "email": "javier.ortiz@gmail.com",
         "phone": "0034654123456",
         "allergies": "",
@@ -104,7 +104,7 @@
     {
         "name": "Myriam",
         "fullName": "Myriam Diaz",
-        "type": 1,
+        "type": 2,
         "email": "myriam.diaz@gmail.com",
         "phone": "0034654123456",
         "allergies": "",
@@ -121,7 +121,7 @@
     {
         "name": "Javi",
         "fullName": "Javier Rodriguez",
-        "type": 0,
+        "type": 1,
         "email": "pucho@gmail.com",
         "phone": "0034654123456",
         "allergies": "",
@@ -138,7 +138,7 @@
     {
         "name": "Mamen",
         "fullName": "Mamen Teijon",
-        "type": 1,
+        "type": 2,
         "email": "mamen.teijon@gmail.com",
         "phone": "0034654123456",
         "allergies": "",
@@ -155,7 +155,7 @@
     {
         "name": "Jorge",
         "fullName": "Jorge Apellido",
-        "type": 0,
+        "type": 1,
         "email": "busi@gmail.com",
         "allergies": "",
         "busTime": "",
@@ -171,7 +171,7 @@
     {
         "name": "Marco",
         "fullName": "Marco Apellido",
-        "type": 2,
+        "type": 3,
         "email": "marco@gmail.com",
         "allergies": "",
         "busTime": "",

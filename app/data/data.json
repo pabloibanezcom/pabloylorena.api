@@ -1,0 +1,53 @@
+[
+    {
+        "name": "hosts",
+        "options": [
+            {
+                "label": "Pablo",
+                "value": "Pablo"
+            },
+            {
+                "label": "Lorena",
+                "value": "Lorena"
+            },
+            {
+                "label": "Ambos",
+                "value": "Ambos"
+            }
+        ]
+    },
+    {
+        "name": "types",
+        "options": [
+            {
+                "label": "Hombre",
+                "value": 1
+            },
+            {
+                "label": "Mujer",
+                "value": 2
+            },
+            {
+                "label": "Niño",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "name": "bus-times",
+        "options": [
+            {
+                "label": "02:00",
+                "value": "02:00"
+            },
+            {
+                "label": "04:30",
+                "value": "04:30"
+            },
+            {
+                "label": "07:00",
+                "value": "07:00"
+            }
+        ]
+    }
+]

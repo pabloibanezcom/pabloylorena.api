@@ -1,0 +1,13 @@
+{
+    "name": "Data",
+    "route": "data",
+    "authLevel": "public",
+    "properties": {
+        "name": {
+            "type": "String"
+        },
+        "options": {
+            "type": "Mixed"
+        }
+    }
+}
