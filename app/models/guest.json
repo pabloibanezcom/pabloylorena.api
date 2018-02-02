@@ -34,6 +34,9 @@
         "isAttending": {
             "type": "Boolean"
         },
+        "isAttendingFriday": {
+            "type": "Boolean"
+        },
         "giftAmount": {
             "type": "Number"
         },

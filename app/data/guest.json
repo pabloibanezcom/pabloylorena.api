@@ -11,6 +11,7 @@
         "busTime": "",
         "tableNumber": 0,
         "isAttending": false,
+        "isAttendingFriday": true,
         "invitation": {
             "alias": "Carlos y Esther"
         },
@@ -28,6 +29,7 @@
         "busTime": "",
         "tableNumber": 0,
         "isAttending": false,
+        "isAttendingFriday": true,
         "invitation": {
             "alias": "Carlos y Esther"
         },
@@ -78,6 +80,7 @@
         "busTime": "",
         "tableNumber": 0,
         "isAttending": true,
+        "isAttendingFriday": true,
         "invitation": {
             "alias": "Maru y Javi"
         },
@@ -111,6 +114,7 @@
         "busTime": "",
         "tableNumber": 0,
         "isAttending": false,
+        "isAttendingFriday": true,
         "invitation": {
             "alias": "Myriam y Pucho"
         },
