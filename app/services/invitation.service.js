@@ -16,6 +16,7 @@ service.getInvitationByGuid = async (modelsService, requestGuid) => {
                 email: g.email,
                 phone: g.phone,
                 busTime: g.busTime,
+                stayingPlace: g.stayingPlace,
                 isAttending: g.isAttending,
                 allergies: g.allergies,
                 additionalComments: g.additionalComments

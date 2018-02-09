@@ -49,5 +49,22 @@
                 "value": "07:00"
             }
         ]
+    },
+    {
+        "name": "staying-places",
+        "options": [
+            {
+                "label": "Navalmoral de la Mata",
+                "value": "Navalmoral"
+            },
+            {
+                "label": "Jarandilla de la Vera",
+                "value": "Jarandilla"
+            },
+            {
+                "label": "Otro",
+                "value": "Otro"
+            }
+        ]
     }
 ]

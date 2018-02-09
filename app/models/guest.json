@@ -31,6 +31,9 @@
         "busTime": {
             "type": "String"
         },
+        "stayingPlace": {
+            "type": "String"
+        },
         "isAttending": {
             "type": "Boolean"
         },
