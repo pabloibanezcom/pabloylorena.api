@@ -48,6 +48,8 @@ const updateGuest = async (model, guestData) => {
     const guest = await model.findById(guestData._id);
     if (guest) {
         guest.isAttending = guestData.isAttending;
+        guest.isAttendingExpectation = guestData.isAttendingExpectation;
+        guest.isAttendingFriday = guestData.isAttendingFriday;
         guest.name = guestData.name;
         guest.allergies = guestData.allergies;
         guest.email = guestData.email;

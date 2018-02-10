@@ -37,6 +37,9 @@
         "isAttending": {
             "type": "Boolean"
         },
+        "isAttendingExpectation": {
+            "type": "Boolean"
+        },
         "isAttendingFriday": {
             "type": "Boolean"
         },
