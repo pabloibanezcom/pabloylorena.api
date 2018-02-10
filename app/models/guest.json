@@ -34,6 +34,9 @@
         "stayingPlace": {
             "type": "String"
         },
+        "stayingPlaceExpectation": {
+            "type": "String"
+        },
         "isAttending": {
             "type": "Boolean"
         },

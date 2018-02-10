@@ -50,6 +50,8 @@ const updateGuest = async (model, guestData) => {
         guest.isAttending = guestData.isAttending;
         guest.isAttendingExpectation = guestData.isAttendingExpectation;
         guest.isAttendingFriday = guestData.isAttendingFriday;
+        guest.stayingPlace = guestData.stayingPlace;
+        guest.stayingPlaceExpectation = guestData.stayingPlaceExpectation;
         guest.name = guestData.name;
         guest.allergies = guestData.allergies;
         guest.email = guestData.email;
