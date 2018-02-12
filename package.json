@@ -16,7 +16,7 @@
     "express-session": "^1.15.0",
     "mongoose": "^4.11.13",
     "nexmo": "^2.1.1",
-    "node-express-mongodb": "1.0.16",
+    "node-express-mongodb": "1.0.17",
     "nodemailer": "^4.4.1"
   },
   "engines": {

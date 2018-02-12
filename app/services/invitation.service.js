@@ -79,7 +79,7 @@ const generateFieldHtml = (name, value) => {
 
 const generateEmailTo = async (modelsService) => {
     let result = "";
-    const admins = await modelsService.getModel('User').find({ isAdmin: true });
+    const admins = await modelsService.getModel('User').find({ authLevel: 'admin' });
     for (let admin of admins) {
         result += admin.local.email + ', ';
     }

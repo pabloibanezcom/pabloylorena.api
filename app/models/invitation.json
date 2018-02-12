@@ -1,7 +1,7 @@
 {
     "name": "Invitation",
     "route": "invitation",
-    "authLevel": "admin",
+    "authLevel": "admin-reader",
     "properties": {
         "guid": {
             "type": "String",

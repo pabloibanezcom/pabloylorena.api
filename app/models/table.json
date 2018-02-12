@@ -1,7 +1,7 @@
 {
     "name": "Table",
     "route": "table",
-    "authLevel": "admin",
+    "authLevel": "admin-reader",
     "properties": {
         "number": {
             "type": "Number"

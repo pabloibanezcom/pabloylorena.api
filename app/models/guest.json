@@ -1,7 +1,7 @@
 {
     "name": "Guest",
     "route": "guest",
-    "authLevel": "admin",
+    "authLevel": "admin-reader",
     "properties": {
         "name": {
             "type": "String"

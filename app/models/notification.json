@@ -1,7 +1,7 @@
 {
     "name": "Notification",
     "route": "notification",
-    "authLevel": "admin",
+    "authLevel": "admin-reader",
     "properties": {
         "alias": {
             "type": "String"
