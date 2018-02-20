@@ -1,0 +1,6 @@
+{
+    "name": "Overview",
+    "route": "overview",
+    "authLevel": "none",
+    "properties": {}
+}
