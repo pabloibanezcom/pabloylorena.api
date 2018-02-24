@@ -12,6 +12,9 @@
         "order": {
             "type": "Number"
         },
+        "invitationDedication": {
+            "type": "String"
+        },
         "lastModified": {
             "type": "Date",
             "generate": "DateNow"

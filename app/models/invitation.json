@@ -22,6 +22,12 @@
         "isReplied": {
             "type": "Boolean"
         },
+        "dedication": {
+            "type": "String"
+        },
+        "useGroupDedication": {
+            "type": "Boolean"
+        },
         "lastModified": {
             "type": "Date",
             "generate": "DateNow"
