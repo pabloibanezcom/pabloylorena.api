@@ -25,6 +25,9 @@
         "dear": {
             "type": "String"
         },
+        "isPlural": {
+            "type": "Boolean"
+        },
         "dedication": {
             "type": "String"
         },
