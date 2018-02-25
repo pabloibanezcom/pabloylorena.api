@@ -22,6 +22,9 @@
         "isReplied": {
             "type": "Boolean"
         },
+        "dear": {
+            "type": "String"
+        },
         "dedication": {
             "type": "String"
         },
