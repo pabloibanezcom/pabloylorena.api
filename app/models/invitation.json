@@ -31,7 +31,7 @@
         "dedication": {
             "type": "String"
         },
-        "dedicationType": {
+        "dedicationMode": {
             "type": "String"
         },
         "lastModified": {
