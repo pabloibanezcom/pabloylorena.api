@@ -31,8 +31,8 @@
         "dedication": {
             "type": "String"
         },
-        "useGroupDedication": {
-            "type": "Boolean"
+        "dedicationType": {
+            "type": "String"
         },
         "lastModified": {
             "type": "Date",
