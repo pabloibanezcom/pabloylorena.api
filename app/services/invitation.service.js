@@ -11,7 +11,6 @@ service.getInvitationByGuid = async (modelsService, requestGuid) => {
             guests: invitation.guests.map(g => {return { 
                 _id: g._id,
                 name: g.name,
-                fullName: g.fullName,
                 type: g.type,
                 email: g.email,
                 phone: g.phone,
