@@ -7,7 +7,7 @@ module.exports = (app, modelsService) => {
         app.get(url,
             (req, res) => {
                 service.getInvitationByGuid(modelsService, req.params.guid)
-                    .then(result => res.status(result.statusCode).send(result.invitation))
+                    .then(result => res.status(result.statusCode).send(result.data))
                     .catch(err => res.status(500).send(err.message) );
             });
         app.routesInfo['Invitation'].push({ model: 'Invitation', name: 'Get By GUID',  method: 'get', url: url });
@@ -18,7 +18,7 @@ module.exports = (app, modelsService) => {
         app.post(url,
             (req, res) => {
                 service.confirmAttendance(modelsService, req.body)
-                    .then(result => res.status(result.statusCode).send(result.message))
+                    .then(result => res.status(result.statusCode).send(result.data))
                     .catch(err => res.status(500).send(err) );
             });
         app.routesInfo['Invitation'].push({ model: 'Invitation', name: 'Confirm Attendance',  method: 'POST', url: url });
