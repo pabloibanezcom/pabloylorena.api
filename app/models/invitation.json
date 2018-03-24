@@ -22,6 +22,9 @@
         "isReplied": {
             "type": "Boolean"
         },
+        "notInPaper": {
+            "type": "Boolean"
+        },
         "dear": {
             "type": "String"
         },
