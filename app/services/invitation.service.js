@@ -57,6 +57,7 @@ const updateGuest = async (model, guestData) => {
         guest.isAttending = guestData.isAttending;
         guest.stayingPlace = guestData.stayingPlace;
         guest.allergies = guestData.allergies;
+        guest.order = guestData.order;
         guest.additionalComments = guestData.additionalComments;
         guest.lastModified = Date.now();
         await guest.save();

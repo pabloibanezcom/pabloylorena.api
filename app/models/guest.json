@@ -49,6 +49,9 @@
         "giftAmount": {
             "type": "Number"
         },
+        "order": {
+            "type": "Number"
+        },
         "lastModified": {
             "type": "Date",
             "generate": "DateNow"

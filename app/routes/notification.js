@@ -12,7 +12,7 @@ module.exports = (app, modelsService) => {
                     .then(result => res.status(200).send({}))
                     .catch(err => res.status(500).send(err.message) );
             });
-        app.routesInfo['Notification'].push({ model: 'Notification', name: 'Send SMS',  method: 'post', url: url, body: { text: '' } });
+        app.routesInfo['Notification'].push({ model: 'Notification', name: 'Send SMS',  method: 'POST', url: url, body: { text: '' } });
     }
 
     registerSendSms();
