@@ -20,7 +20,9 @@ service.sendEmail = (to, subject, htmlBody) => {
         html: htmlBody
     };
 
-    transporter.sendMail(mailOptions);
+    transporter.sendMail(mailOptions)
+    .then(res => console.log('NODEMAILER SUCCESS: ', res))
+    .catch(err => console.log('NODEMAILER ERROR: ', err));
 }
 
 module.exports = service;
