@@ -9,13 +9,10 @@
         "name": {
             "type": "String"
         },
-        "shape": {
+        "alias": {
             "type": "String"
         },
-        "maxSize": {
-            "type": "Number"
-        },
-        "minSize": {
+        "size": {
             "type": "Number"
         },
         "lastModified": {

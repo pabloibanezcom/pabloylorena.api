@@ -52,6 +52,9 @@
         "order": {
             "type": "Number"
         },
+        "orderInTable": {
+            "type": "Number"
+        },
         "lastModified": {
             "type": "Date",
             "generate": "DateNow"
