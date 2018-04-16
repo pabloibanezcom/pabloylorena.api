@@ -46,9 +46,6 @@
         "isAttendingFriday": {
             "type": "Boolean"
         },
-        "giftAmount": {
-            "type": "Number"
-        },
         "order": {
             "type": "Number"
         },

@@ -37,6 +37,9 @@
         "dedicationMode": {
             "type": "String"
         },
+        "giftAmount": {
+            "type": "Number"
+        },
         "lastModified": {
             "type": "Date",
             "generate": "DateNow"
