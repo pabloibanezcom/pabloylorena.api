@@ -2,5 +2,7 @@
     "Group",
     "Invitation",
     "Table",
-    "Guest"
+    "Guest",
+    "ExpenseGroup",
+    "Expense"
 ]

@@ -1,0 +1,21 @@
+{
+    "name": "ExpenseGroup",
+    "route": "expense-group",
+    "authLevel": "admin-reader",
+    "properties": {
+        "name": {
+            "type": "String"
+        },
+        "icon": {
+            "type": "String"
+        },
+        "lastModified": {
+            "type": "Date",
+            "generate": "DateNow"
+        },
+        "expenses": {
+            "type": "[Expense]",
+            "propertyMatch": "group"
+        }
+    }
+}

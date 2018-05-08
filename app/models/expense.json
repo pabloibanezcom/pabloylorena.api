@@ -1,0 +1,33 @@
+{
+    "name": "Expense",
+    "route": "expense",
+    "authLevel": "admin-reader",
+    "properties": {
+        "description": {
+            "type": "String"
+        },
+        "payeer": {
+            "type": "String"
+        },
+        "provider": {
+            "type": "String"
+        },
+        "amount": {
+            "type": "Number"
+        },
+        "amountPaid": {
+            "type": "Number"
+        },
+        "costPerGuest": {
+            "type": "Boolean"
+        },
+        "lastModified": {
+            "type": "Date",
+            "generate": "DateNow"
+        },
+        "group": {
+            "type": "ExpenseGroup",
+            "propertyMatch": "expenses"
+        }
+    }
+}
