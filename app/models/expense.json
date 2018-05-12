@@ -25,9 +25,9 @@
             "type": "Date",
             "generate": "DateNow"
         },
-        "group": {
-            "type": "ExpenseGroup",
-            "propertyMatch": "expenses"
+        "category": {
+            "type": "ExpenseCategory",
+            "propertyMatch": "categories"
         }
     }
 }

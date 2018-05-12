@@ -1,6 +1,6 @@
 {
-    "name": "ExpenseGroup",
-    "route": "expense-group",
+    "name": "ExpenseCategory",
+    "route": "expense-category",
     "authLevel": "admin-reader",
     "properties": {
         "name": {
@@ -15,7 +15,7 @@
         },
         "expenses": {
             "type": "[Expense]",
-            "propertyMatch": "group"
+            "propertyMatch": "category"
         }
     }
 }
