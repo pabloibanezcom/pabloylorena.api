@@ -9,6 +9,9 @@
         "icon": {
             "type": "String"
         },
+        "class": {
+            "type": "String"
+        },
         "lastModified": {
             "type": "Date",
             "generate": "DateNow"
