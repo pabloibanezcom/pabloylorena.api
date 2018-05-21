@@ -1,62 +1,126 @@
 const service = {};
 
+let _modelsService;
+
 service.getMainReport = async (modelsService) => {
-    const guests = await modelsService.getModel('Guest').find({}).populate({
-        path: 'invitation', select: 'alias', populate: [
-            { path: 'group', select: 'name host' }]
+  _modelsService = modelsService;
+  const guestData = await getGuestsData();
+  const expensesData = await getExpensesData(guestData.expected);
+  const result = {
+    guests: guestData,
+    expenses: expensesData
+  };
+  return { statusCode: 200, report: result };
+}
+
+const getGuestsData = async () => {
+  const result = {
+    expected: 0,
+    attendingFriday: 0,
+    types: [
+      {
+        type: 1,
+        amount: 0
+      },
+      {
+        type: 2,
+        amount: 0
+      },
+      {
+        type: 3,
+        amount: 0
+      },
+      {
+        type: 4,
+        amount: 0
+      }
+    ],
+    staying: [],
+    gift: 0
+  };
+  const guests = await _modelsService.getModel('Guest').find({});
+  const invitations = await _modelsService.getModel('Invitation').find({ giftAmount: { $gt: 0 } });
+  guests.forEach(g => {
+    result.expected += g.isAttendingExpectation ? 1 : 0;
+    result.attendingFriday += g.isAttendingFriday ? 1 : 0;
+    if (g.isAttendingExpectation) {
+      sumType(result.types, g);
+      sumStaying(result.staying, g);
     }
-    );
-    const result = {
-        isAttendingFriday: getYesNoDoubtful(guests, 'isAttendingFriday'),
-        isAttending: getYesNoDoubtful(guests, 'isAttending'),
-        isAttendingExpectation: getYesNoDoubtful(guests, 'isAttendingExpectation')
+  });
+  invitations.forEach(inv => {
+    result.gift += inv.giftAmount ? inv.giftAmount : 0;
+  });
+  result.gift = roundMoney(result.gift);
+  return result;
+}
+
+const getExpensesData = async (expectedGuests) => {
+  const result = {
+    total: 0,
+    totalPaid: 0,
+    categories: []
+  };
+  const expensesCategories = await _modelsService.getModel('ExpenseCategory').find({}).sort({ excludeFromTotal: 1, name: 1 }).populate([{ 'path': 'expenses' }]);
+  expensesCategories.forEach(cat => {
+    const catObj = {
+      categoryData: Object.assign({}, cat._doc, { expenses: undefined }),
+      total: 0,
+      totalPaid: 0
     };
-    return { statusCode: 200, report: result };
-}
-
-const getYesNoDoubtful = (guests, property) => {
-    return {
-        yes: getYesNoDoubtfulOption(guests.filter(g => g[property] === true)),
-        no: getYesNoDoubtfulOption(guests.filter(g => g[property] === false)),
-        doubtful: getYesNoDoubtfulOption(guests.filter(g => g[property] !== false && g[property] !== true))
-    };
-}
-
-const getYesNoDoubtfulOption = (guests) => {
-    return Object.assign({ 'total': guests.length }, groupByTypes(guests), groupByStayingPlace(guests), groupByGroup(guests));
-}
-
-const groupByTypes = (guests) => {
-    return {
-        'male': guests.filter(g => g.type === 1).length,
-        'female': guests.filter(g => g.type === 2).length,
-        'child': guests.filter(g => g.type === 3).length,
-        'baby': guests.filter(g => g.type === 4).length
+    if (!cat.excludeFromTotal) {
+      cat.expenses.forEach(exp => {
+        catObj.total += !exp.costPerGuest ? exp.amount : expectedGuests * exp.amount;
+        catObj.totalPaid += exp.amountPaid;
+      });
     }
+    result.categories.push(catObj);
+  });
+  result.total = roundMoney(result.categories.map(e => e.total).reduce((a, b) => a + b));
+  result.totalPaid = roundMoney(result.categories.map(e => e.totalPaid).reduce((a, b) => a + b));
+  result.categories.forEach(c => {
+    c.total = roundMoney(c.total);
+    c.totalPaid = roundMoney(c.totalPaid);
+  });
+  return result;
 }
 
-const groupByStayingPlace = (guests) => {
-    return {
-        'navalmoral': guests.filter(g => g.stayingPlaceExpectation === 'Navalmoral').length,
-        'jarandilla': guests.filter(g => g.stayingPlaceExpectation === 'Jarandilla').length,
-        'otro': guests.filter(g => g.stayingPlaceExpectation === 'Otro').length
-    }
+// const extractExpenseCategory = (categories, categoryName, amount, amountPaid) => {
+//   let category = categories.find(c => c.categoryData.name === categoryName);
+//   if (!category) {
+//     category = {
+//       categoryData: null,
+//       total: 0,
+//       totalPaid: 0
+//     };
+//     categories.push(category);
+//   }
+//   category.total += amount;
+//   category.totalPaid += amountPaid;
+// }
+
+const sumType = (types, guest) => {
+  const type = types.find(t => t.type === guest.type);
+  type.amount++;
 }
 
-const groupByGroup = (guests) => {
-    const result = {};
-    guests.forEach(g => {
-        if (g.invitation && g.invitation.group && g.invitation.group.name) {
-            if (result[g.invitation.group.name]) {
-                result[g.invitation.group.name]++;
-            } else {
-                result[g.invitation.group.name] = 1;
-            }
-        }
-    });
-    return {
-        groups: result
+const sumStaying = (staying, guest) => {
+  if (!guest.stayingPlaceExpectation) {
+    return;
+  }
+  let stayingPlace = staying.find(s => s.place === guest.stayingPlaceExpectation);
+  if (!stayingPlace) {
+    stayingPlace = {
+      place: guest.stayingPlaceExpectation,
+      amount: 0
     }
+    staying.push(stayingPlace);
+  }
+  stayingPlace.amount++;
+}
+
+const roundMoney = (amount) => {
+  return amount.toFixed(2);
 }
 
 module.exports = service;

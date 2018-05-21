@@ -27,7 +27,7 @@
         },
         "category": {
             "type": "ExpenseCategory",
-            "propertyMatch": "categories"
+            "propertyMatch": "expenses"
         }
     }
 }

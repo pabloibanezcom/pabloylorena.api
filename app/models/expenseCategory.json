@@ -12,6 +12,9 @@
         "class": {
             "type": "String"
         },
+        "excludeFromTotal": {
+            "type": "Boolean"
+        },
         "lastModified": {
             "type": "Date",
             "generate": "DateNow"
