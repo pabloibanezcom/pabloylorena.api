@@ -68,36 +68,22 @@ const getExpensesData = async (expectedGuests) => {
       total: 0,
       totalPaid: 0
     };
-    if (!cat.excludeFromTotal) {
-      cat.expenses.forEach(exp => {
-        catObj.total += !exp.costPerGuest ? exp.amount : expectedGuests * exp.amount;
-        catObj.totalPaid += exp.amountPaid;
-      });
-    }
+    cat.expenses.forEach(exp => {
+      catObj.total += !exp.costPerGuest ? exp.amount : expectedGuests * exp.amount;
+      catObj.totalPaid += exp.amountPaid;
+    });
     result.categories.push(catObj);
   });
   result.total = roundMoney(result.categories.map(e => e.total).reduce((a, b) => a + b));
   result.totalPaid = roundMoney(result.categories.map(e => e.totalPaid).reduce((a, b) => a + b));
   result.categories.forEach(c => {
-    c.total = roundMoney(c.total);
-    c.totalPaid = roundMoney(c.totalPaid);
+    if (!c.excludeFromTotal) {
+      c.total = roundMoney(c.total);
+      c.totalPaid = roundMoney(c.totalPaid);
+    }
   });
   return result;
 }
-
-// const extractExpenseCategory = (categories, categoryName, amount, amountPaid) => {
-//   let category = categories.find(c => c.categoryData.name === categoryName);
-//   if (!category) {
-//     category = {
-//       categoryData: null,
-//       total: 0,
-//       totalPaid: 0
-//     };
-//     categories.push(category);
-//   }
-//   category.total += amount;
-//   category.totalPaid += amountPaid;
-// }
 
 const sumType = (types, guest) => {
   const type = types.find(t => t.type === guest.type);
