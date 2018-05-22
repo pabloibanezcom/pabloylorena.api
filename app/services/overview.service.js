@@ -74,13 +74,11 @@ const getExpensesData = async (expectedGuests) => {
     });
     result.categories.push(catObj);
   });
-  result.total = roundMoney(result.categories.map(e => e.total).reduce((a, b) => a + b));
-  result.totalPaid = roundMoney(result.categories.map(e => e.totalPaid).reduce((a, b) => a + b));
+  result.total = roundMoney(result.categories.filter(c => !c.categoryData.excludeFromTotal).map(e => e.total).reduce((a, b) => a + b));
+  result.totalPaid = roundMoney(result.categories.filter(c => !c.categoryData.excludeFromTotal).map(e => e.totalPaid).reduce((a, b) => a + b));
   result.categories.forEach(c => {
-    if (!c.excludeFromTotal) {
-      c.total = roundMoney(c.total);
-      c.totalPaid = roundMoney(c.totalPaid);
-    }
+    c.total = roundMoney(c.total);
+    c.totalPaid = roundMoney(c.totalPaid);
   });
   return result;
 }
