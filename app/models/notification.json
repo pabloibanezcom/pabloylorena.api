@@ -9,6 +9,12 @@
         "text": {
             "type": "String"
         },
+        "type": {
+            "type": "String"
+        },
+        "sentTime": {
+            "type": "Date"
+        },
         "lastModified": {
             "type": "Date",
             "generate": "DateNow"
