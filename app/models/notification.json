@@ -12,6 +12,9 @@
         "type": {
             "type": "String"
         },
+        "isTableSms": {
+            "type": "Boolean"
+        },
         "sentTime": {
             "type": "Date"
         },
