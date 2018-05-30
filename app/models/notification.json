@@ -6,14 +6,20 @@
         "alias": {
             "type": "String"
         },
+        "order": {
+            "type": "Number"
+        },
         "text": {
             "type": "String"
         },
         "type": {
             "type": "String"
         },
-        "isTableSms": {
-            "type": "Boolean"
+        "from": {
+            "type": "Date"
+        },
+        "to": {
+            "type": "Date"
         },
         "sentTime": {
             "type": "Date"

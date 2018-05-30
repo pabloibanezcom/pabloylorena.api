@@ -1,14 +1,14 @@
-const emailService = require('./email.service');
 const smsService = require('./sms.service');
 
 const service = {}
 
-service.notifyByEmail = (to, subject, htmlBody) => {
-    emailService.sendEmail(to, subject, htmlBody);
-}
-
-service.notifyBySms = async (modelsService, text) => {
-    return smsService.sendSms(modelsService, text);
+service.send = async (modelsService, notificationId) => {
+    const notification = await modelsService.getModel('Notification').findOne({ _id: notificationId });
+    if (notification.type === 'Movil') {
+        await smsService.sendSms(modelsService, notification.text);
+    }
+    notification.sentTime = Date.now();
+    return notification.save();
 }
 
 module.exports = service;

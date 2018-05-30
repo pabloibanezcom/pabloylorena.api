@@ -10,15 +10,24 @@ const from = process.env.SMS_FROM;
 const service = {};
 
 service.sendSms = async (modelsService, text) => {
-    const guestToSend = await modelsService.getModel('Guest').find({sendSms: true});
+    const guestToSend = await modelsService.getModel('Guest').find({ sendSms: true }).populate({ path: 'table', select: 'number name' });
     for (let guest of guestToSend) {
-        await service.sendSmsToPerson({ name: guest.name, number: guest.phone}, text);
+        await sendSmsToPerson(guest, text);
     }
     return true;
 }
 
-service.sendSmsToPerson = async (person, text) => {
-    return await nexmo.message.sendSms(from, person.number, person.name + ', ' + text);
+const sendSmsToPerson = async (person, text) => {
+    const transformedtext = text.replace('{{guest.name}}', person.name).replace('{{guest.table}}', `${person.table.number} - ${person.table.name}`);
+    if (process.env.ENABLE_SMS) {
+        await nexmo.message.sendSms(from, person.phone, transformedtext);
+    }
+    logSmsSent(from, person.phone, transformedtext);
+    return;
+}
+
+const logSmsSent = (from, number, text) => {
+    console.log(`SMS sent from ${from} to ${number} with text - ${text}`);
 }
 
 module.exports = service;

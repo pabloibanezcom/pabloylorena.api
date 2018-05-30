@@ -2,19 +2,17 @@ const service = require('../services/notification.service');
 
 module.exports = (app, modelsService) => {
 
-    app.routesInfo['Notification']= [];
-
-    const registerSendSms = () => {
-        const url = '/api/notification/sms';
-        app.post(url,
+    const registerSend = () => {
+        const url = '/api/notification/:id/send';
+        app.get(url,
             (req, res) => {
-                service.notifyBySms(modelsService, req.body.text)
-                    .then(result => res.status(200).send({}))
-                    .catch(err => res.status(500).send(err.message) );
+                service.send(modelsService, req.params.id)
+                    .then(result => res.status(200).send(result))
+                    .catch(err => res.status(500).send(err.message));
             });
-        app.routesInfo['Notification'].push({ model: 'Notification', name: 'Send SMS',  method: 'POST', url: url, body: { text: '' } });
+        app.routesInfo['Notification'].push({ model: 'Notification', name: 'Send', method: 'GET', url: url });
     }
 
-    registerSendSms();
-    
+    registerSend();
+
 };
