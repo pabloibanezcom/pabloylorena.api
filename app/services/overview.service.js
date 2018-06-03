@@ -5,7 +5,11 @@ let _modelsService;
 service.getMainReport = async (modelsService) => {
   _modelsService = modelsService;
   const guestData = await getGuestsData();
-  const expensesData = await getExpensesData(guestData.expected);
+  const expectedGuests = {
+    adults: guestData.types.find(t => t.type === 1).amount + guestData.types.find(t => t.type === 2).amount,
+    children: guestData.types.find(t => t.type === 3).amount
+  };
+  const expensesData = await getExpensesData(expectedGuests);
   const result = {
     guests: guestData,
     expenses: expensesData
@@ -69,7 +73,13 @@ const getExpensesData = async (expectedGuests) => {
       totalPaid: 0
     };
     cat.expenses.forEach(exp => {
-      catObj.total += !exp.costPerGuest ? exp.amount : expectedGuests * exp.amount;
+      if (!exp.costPerGuest || exp.costPerGuest === 0) {
+        catObj.total += exp.amount;
+      } else if (exp.costPerGuest === 1) {
+        catObj.total += expectedGuests.adults * exp.amount;
+      } else if (exp.costPerGuest === 3) {
+        catObj.total += expectedGuests.children * exp.amount;
+      }
       catObj.totalPaid += exp.amountPaid;
     });
     result.categories.push(catObj);

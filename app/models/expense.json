@@ -19,7 +19,7 @@
             "type": "Number"
         },
         "costPerGuest": {
-            "type": "Boolean"
+            "type": "Number"
         },
         "lastModified": {
             "type": "Date",
