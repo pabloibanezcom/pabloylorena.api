@@ -6,8 +6,8 @@ service.getMainReport = async (modelsService) => {
   _modelsService = modelsService;
   const guestData = await getGuestsData();
   const expectedGuests = {
-    adults: guestData.types.find(t => t.type === 1).amount + guestData.types.find(t => t.type === 2).amount,
-    children: guestData.types.find(t => t.type === 3).amount
+    adults: guestData.wedding.types.find(t => t.type === 1).amount + guestData.wedding.types.find(t => t.type === 2).amount,
+    children: guestData.wedding.types.find(t => t.type === 3).amount
   };
   const expensesData = await getExpensesData(expectedGuests);
   const result = {
@@ -19,39 +19,30 @@ service.getMainReport = async (modelsService) => {
 
 const getGuestsData = async () => {
   const result = {
-    expected: 0,
-    attendingFriday: 0,
-    types: [
-      {
-        type: 1,
-        amount: 0
-      },
-      {
-        type: 2,
-        amount: 0
-      },
-      {
-        type: 3,
-        amount: 0
-      },
-      {
-        type: 4,
-        amount: 0
-      }
-    ],
-    staying: [],
+    wedding: {
+      total: 0,
+      types: [],
+      staying: []
+    },
+    friday: {
+      total: 0,
+      types: []
+    },
     gift: 0
   };
   const guests = await _modelsService.getModel('Guest').find({});
   const invitations = await _modelsService.getModel('Invitation').find({ giftAmount: { $gt: 0 } });
   guests.forEach(g => {
-    result.expected += g.isAttendingExpectation ? 1 : 0;
-    result.attendingFriday += g.isAttendingFriday ? 1 : 0;
     if (g.isAttendingExpectation) {
-      sumType(result.types, g);
-      sumStaying(result.staying, g);
+      sumType(result.wedding.types, g);
+      sumStaying(result.wedding.staying, g);
+    }
+    if (g.isAttendingFriday) {
+      sumType(result.friday.types, g);
     }
   });
+  result.wedding.total = result.wedding.types.map(t => t.amount).reduce((a, b) => a + b);
+  result.friday.total = result.friday.types.map(t => t.amount).reduce((a, b) => a + b);
   invitations.forEach(inv => {
     result.gift += inv.giftAmount ? inv.giftAmount : 0;
   });
@@ -94,7 +85,11 @@ const getExpensesData = async (expectedGuests) => {
 }
 
 const sumType = (types, guest) => {
-  const type = types.find(t => t.type === guest.type);
+  let type = types.find(t => t.type === guest.type);
+  if (!type) {
+    type = { type: guest.type, amount: 0 };
+    types.push(type);
+  }
   type.amount++;
 }
 
