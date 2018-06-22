@@ -41,7 +41,7 @@ service.confirmAttendance = async (modelsService, attendanceObj) => {
             await updateGuest(Guest, g);
         }
         const emailTo = await generateEmailTo(modelsService);
-        notificationService.notifyByEmail(emailTo, 'Boda - Asistencia confirmada', generateEmailHtml(attendanceObj));
+        // notificationService.notifyByEmail(emailTo, 'Boda - Asistencia confirmada', generateEmailHtml(attendanceObj));
         return { statusCode: 200, data: invitation };
     }
     return { statusCode: 404, data: null };
