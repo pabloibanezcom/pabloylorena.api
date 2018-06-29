@@ -28,8 +28,8 @@
         "additionalComments": {
             "type": "String"
         },
-        "busTime": {
-            "type": "String"
+        "isTakingBus": {
+            "type": "Boolean"
         },
         "stayingPlace": {
             "type": "String"

@@ -19,6 +19,7 @@ service.getInvitationByGuid = async (modelsService, requestGuid) => {
                         phone: g.phone,
                         stayingPlace: g.stayingPlace,
                         isAttending: g.isAttending,
+                        isTakingBus: g.isTakingBus,
                         allergies: g.allergies,
                         additionalComments: g.additionalComments
                     }
@@ -56,6 +57,7 @@ const updateGuest = async (model, guestData) => {
         guest.phone = guestData.phone;
         guest.isAttending = guestData.isAttending;
         guest.stayingPlace = guestData.stayingPlace;
+        guest.isTakingBus = guestData.isTakingBus;
         guest.allergies = guestData.allergies;
         guest.order = guestData.order;
         guest.additionalComments = guestData.additionalComments;
