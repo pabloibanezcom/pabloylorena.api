@@ -22,16 +22,16 @@ const getGuestsData = async () => {
     wedding: {
       total: 0,
       types: [],
-      staying: []
+      staying: [],
+      bus: {
+        beforeWedding: 0,
+        afterWedding: 0,
+        afterVenue: 0
+      }
     },
     friday: {
       total: 0,
       types: []
-    },
-    bus: {
-      beforeWedding: 0,
-      afterWedding: 0,
-      afterVenue: 0
     },
     gift: 0
   };
@@ -45,9 +45,9 @@ const getGuestsData = async () => {
     if (g.isAttendingFriday) {
       sumType(result.friday.types, g);
     }
-    if (g.isTakingBus && g.stayingPlace === 'Jarandilla') { result.bus.beforeWedding++ }
-    if (g.isTakingBus) { result.bus.afterWedding++ }
-    if (g.isTakingBus && g.stayingPlace === 'Navalmoral') { result.bus.afterVenue++ }
+    if (g.isTakingBus && g.stayingPlace === 'Jarandilla') { result.wedding.bus.beforeWedding++ }
+    if (g.isTakingBus) { result.wedding.bus.afterWedding++ }
+    if (g.isTakingBus && g.stayingPlace === 'Navalmoral') { result.wedding.bus.afterVenue++ }
   });
   result.wedding.total = result.wedding.types.map(t => t.amount).reduce((a, b) => a + b);
   result.friday.total = result.friday.types.map(t => t.amount).reduce((a, b) => a + b);
