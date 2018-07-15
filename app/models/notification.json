@@ -18,6 +18,9 @@
         "isBusNotification": {
             "type": "Boolean"
         },
+        "stayingPlace": {
+            "type": "String"
+        },
         "from": {
             "type": "Date"
         },
