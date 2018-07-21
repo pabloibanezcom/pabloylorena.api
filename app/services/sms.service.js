@@ -20,9 +20,11 @@ service.sendSms = async (modelsService, notification) => {
 const sendSmsToPerson = async (person, text) => {
   const transformedtext = text.replace('{{guest.name}}', person.name).replace('{{guest.table}}', `${person.table.number} - ${person.table.name}`);
   if (process.env.ENABLE_SMS) {
-    await nexmo.message.sendSms(from, person.phone, transformedtext);
+    if (person.phone && person.phone.length > 0) {
+      await nexmo.message.sendSms(from, person.phone, transformedtext);
+      logSmsSent(from, person.phone, transformedtext);
+    }
   }
-  logSmsSent(from, person.phone, transformedtext);
   return;
 }
 
@@ -36,7 +38,7 @@ const getGuestsToSend = async (modelsService, notification) => {
 }
 
 const buildFindQuery = (notification) => {
-  const query = { sendSms: true };
+  const query = {};
   if (notification.isBusNotification) {
     query.isTakingBus = true;
     if (notification.stayingPlace) {
